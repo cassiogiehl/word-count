@@ -7,8 +7,7 @@ object WordCount {
     val conf = new SparkConf().setMaster("local").setAppName("WordCount")
     val sc = new SparkContext(conf)
 
-//    val rdd = sc.textFile("src/main/resources/t8.shakespare.txt").collect()
-    val rdd = sc.textFile("src/main/resources/test.txt").collect()
+    val rdd = sc.textFile("hdfs:///tmp/shakespare.txt").collect()
 
     // removendo caracteres que não estou interessado em contar
     val text = rdd.map(words => words.replace(".", "")
@@ -43,7 +42,6 @@ object WordCount {
     wordcount.collect()
 
 //    salvando no formato de arquivos do hadoop (hdfs)
-//    wordcount.saveAsTextFile("src/main/resources/wordcount")
-    wordcount.saveAsTextFile("/user/resources/wordcount")
+    wordcount.saveAsTextFile("hdfs:///tmp/wordcount")
   }
 }

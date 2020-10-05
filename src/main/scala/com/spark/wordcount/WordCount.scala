@@ -43,7 +43,7 @@ object WordCount {
     wordcount.collect()
 
 //    salvando no formato de arquivos do hadoop (hdfs)
-    wordcount.saveAsTextFile("src/main/resources/wordcount")
+//    wordcount.saveAsTextFile("src/main/resources/wordcount")
     wordcount.saveAsTextFile("/user/resources/wordcount")
   }
 }
